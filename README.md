@@ -1,3 +1,47 @@
+# Introduction to Flask
+
+[Português (Brasil)](README.pt-BR.md)
+
+## Idea and process
+
+A Flask lesson site about the fictional Thorin & Company. Source reviewed on 2026-10-01. No dated planning notes or wireframes were found in the reviewed files. This is an educational site, not a real company, contact service or original production product.
+
+## Architecture and design
+
+`run.py` creates the Flask app. Routes render home, about, member, contact and careers templates. About/member pages read `data/company.json`. The shared base template uses Bootstrap and a Clean Blog theme with a hero image, navigation and inherited content blocks. Assets and fictional character material retain their original rights.
+
+The contact POST only flashes a thank-you message using the supplied name. It does not send email or store the message in the reviewed route, even though the template says it sends a message.
+
+## Local setup
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+export SECRET_KEY='replace-with-a-local-development-key'
+export IP=127.0.0.1
+export PORT=5000
+python run.py
+```
+
+Requirements pin Flask 1.1.2 and historical dependencies; compatibility was not tested here. SECRET_KEY comes from the environment. `run.py` always enables debug, so keep this local. The Procfile runs `python run.py`, not a hardened production server.
+
+## Testing and limitations
+
+No test suite was found in the reviewed root listing. Application and tests were not run; no current public deployment was verified. Check each route, missing member names, JSON schema/file errors, mobile navigation and contact validation using synthetic inputs. Unknown member names currently render with an empty member object rather than explicitly returning 404. The contact route has no explicit CSRF or server-side field validation in the reviewed code. Do not enter real personal messages into this lesson form.
+
+## Snapshots
+
+No application screenshot was verified or added. Capture real home/about/contact states only after local verification, using dated files under `docs/assets/` and fictional data. Label the contact response as a demo acknowledgment, not successful email delivery.
+
+## Credits and licensing
+
+Code Institute template/course material and dependencies retain their original rights. No new license is applied. Original README preserved below as historical reference, not current setup advice.
+
+---
+
+## Original README
+
 ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
 Welcome Iuri Johansson,
